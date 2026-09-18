@@ -1,0 +1,135 @@
+{
+  "skill_name": "evaluate-ml-pipeline",
+  "evals": [
+    {
+      "id": 1,
+      "title": "Standard skore.evaluate entry, IID tabular",
+      "prompt": "[Workspace state \u2014 read but do not narrate back:\n- `journal/01_baseline.md` approved.\n- `src/<pkg>/pipeline.py` exists with `build_learner` returning a\n  `SkrubLearner`. The X-marker has empty `split_kwargs`.\n- `experiments/01_baseline.py` is the scaffold placeholder.\n- Cache exists at `scratch/api/sklearn/1.8.0/cv_splitters.md`\n  covering `KFold` / `GroupKFold` / `TimeSeriesSplit`, and at\n  `scratch/api/skore/0.18.0/evaluate.md`.]\n\nWire `evaluate.py` for the baseline. Tabular regression, no\ngroups, no temporal ordering.",
+      "expected_output": "Behavioural response satisfying: - Pick **`skore.evaluate(learner, data={...}, splitter=...)`** as the entry point (not `cross_val_score`, not `cross_validate`). - Map empty `split_kwargs` + IID \u2192 **`KFold`** per the mapping table. - Mention python-api consultation for `skore.evaluate` and `KFold` signatures. It must NOT: - Recommend `cross_val_score`, `cross_validate`, `classification_report`, or hand-rolled `print(mean_squared_error(...))`. - Default to `StratifiedKFold` (forbidden \u2014 compresses across-fold variance, even on imbalance). - Pre-pin metrics (e.g. `scoring=\"neg_mean_squared_error\"`) \u2014 trust skore defaults.",
+      "files": [],
+      "expectations": [
+        "Pick **`skore.evaluate(learner, data={...}, splitter=...)`** as the entry point (not `cross_val_score`, not `cross_validate`).",
+        "Map empty `split_kwargs` + IID \u2192 **`KFold`** per the mapping table.",
+        "Mention python-api consultation for `skore.evaluate` and `KFold` signatures.",
+        "Mention `data={...}` (env-dict) for `SkrubLearner`, NOT positional `X, y`.",
+        "The response does NOT: Recommend `cross_val_score`, `cross_validate`, `classification_report`, or hand-rolled `print(mean_squared_error(...))`.",
+        "The response does NOT: Default to `StratifiedKFold` (forbidden \u2014 compresses across-fold variance, even on imbalance).",
+        "The response does NOT: Pre-pin metrics (e.g. `scoring=\"neg_mean_squared_error\"`) \u2014 trust skore defaults."
+      ],
+      "tools": false,
+      "sandbox": [],
+      "expect_files": []
+    },
+    {
+      "id": 2,
+      "title": "Time-ordered data, mandatory AskUserQuestion",
+      "prompt": "[Workspace state \u2014 read but do not narrate back:\n- `journal/02_load_forecast.md` approved.\n- `pipeline.py` X-marker has `split_kwargs={\"times\": ...}` (temporal\n  ordering attached at build time).\n- Forecast horizon is 24h.\n- Cache hit at `scratch/api/sklearn/1.8.0/cv_splitters.md` covering\n  `KFold` / `GroupKFold` / `TimeSeriesSplit` \u2014 the splitter lookup\n  is already satisfied.]\n\nWire `evaluate.py` for the 24h-ahead load forecast experiment.\nPick the splitter.",
+      "expected_output": "Behavioural response satisfying: - Name **`AskUserQuestion`** (or a narrative equivalent that lists the picks and waits) as the mandatory gate before a splitter is locked in. No tools this turn: enumerating the options in the message counts as firing the gate. - Present the **four canonical options** (wording need not be verbatim): 1. `TimeSeriesSplit(gap=horizon)` \u2014 safe default 2. `TimeSeriesSplit(gap=0)` \u2014 only on explicit user pick; warn about leakage 3. Custom splitter (purged-and-embargoed / blocked calendar / walk-forward) 4. `KFold` ignoring time \u2014 only with explicit user reason - Cite that `TimeSeriesSplit(n_splits=5)` from memory defaults to `gap=0` which silently leaks at non-trivial horizons. Any sentence that `gap=0` is the memory default / leaks is enough; do not require the exact constructor spelling if `gap=0` is named. It must NOT: - Skip the four-option ask and lock a splitter with no user pick. Naming a **recommended** option (e.g. `TimeSeriesSplit(gap=horizon)`) next to the menu, or drafting `evaluate.py` labeled pending confirmation, is not a silent pick. - Default to `KFold` because empty `gap` \"feels safer\". - Treat harness \"no clarifying questions\" hint as waiving the mandatory ask.",
+      "files": [],
+      "expectations": [
+        "Name **`AskUserQuestion`** (or a narrative equivalent that lists the picks and waits) as the mandatory gate before a splitter is locked in. No tools this turn: enumerating the options in the message counts as firing the gate.",
+        "Present the **four canonical options** (wording need not be verbatim): 1. `TimeSeriesSplit(gap=horizon)` \u2014 safe default 2. `TimeSeriesSplit(gap=0)` \u2014 only on explicit user pick; warn about leakage 3. Custom splitter (purged-and-embargoed / blocked calendar / walk-forward) 4. `KFold` ignoring time \u2014 only with explicit user reason",
+        "Cite that `TimeSeriesSplit(n_splits=5)` from memory defaults to `gap=0` which silently leaks at non-trivial horizons. Any sentence that `gap=0` is the memory default / leaks is enough; do not require the exact constructor spelling if `gap=0` is named.",
+        "The response does NOT: Skip the four-option ask and lock a splitter with no user pick. Naming a **recommended** option (e.g. `TimeSeriesSplit(gap=horizon)`) next to the menu, or drafting `evaluate.py` labeled pending confirmation, is not a silent pick.",
+        "The response does NOT: Default to `KFold` because empty `gap` \"feels safer\".",
+        "The response does NOT: Treat harness \"no clarifying questions\" hint as waiving the mandatory ask."
+      ],
+      "tools": false,
+      "sandbox": [],
+      "expect_files": []
+    },
+    {
+      "id": 3,
+      "title": "`split_kwargs={\"groups\": ...}` \u2192 GroupKFold",
+      "prompt": "[Workspace state \u2014 read but do not narrate back:\n- `pipeline.py` X-marker has\n  `split_kwargs={\"groups\": data[\"customer_id\"]}`.\n- No temporal structure.]\n\nWire `evaluate.py` for a tabular regression where rows are grouped\nby customer.",
+      "expected_output": "Behavioural response satisfying: - Paste **`GroupKFold`** from the mapping table (`groups` \u2192 `GroupKFold`). That identifier is the mapping; do not withhold it. - python-api for the *signature* may be named as the next live turn. Do not fail if signature lookup is BLOCKED as long as `GroupKFold` is named. - Show the `data={...}` env-dict form for a `SkrubLearner`. It must NOT: - Use `StratifiedGroupKFold`. - Use `LeaveOneGroupOut` (forbidden \u2014 per-fold variance too high). - Pick `KFold` ignoring the group structure.",
+      "files": [],
+      "expectations": [
+        "Paste **`GroupKFold`** from the mapping table (`groups` \u2192 `GroupKFold`). That identifier is the mapping; do not withhold it.",
+        "python-api for the *signature* may be named as the next live turn. Do not fail if signature lookup is BLOCKED as long as `GroupKFold` is named.",
+        "Show the `data={...}` env-dict form for a `SkrubLearner`.",
+        "Do NOT use `StratifiedGroupKFold` (forbidden by Stop conditions).",
+        "The response does NOT: Use `StratifiedGroupKFold`.",
+        "The response does NOT: Use `LeaveOneGroupOut` (forbidden \u2014 per-fold variance too high).",
+        "The response does NOT: Pick `KFold` ignoring the group structure."
+      ],
+      "tools": false,
+      "sandbox": [],
+      "expect_files": []
+    },
+    {
+      "id": 4,
+      "title": "Empty `split_kwargs` BUT possible group structure",
+      "prompt": "[Workspace state \u2014 read but do not narrate back:\n- `pipeline.py` X-marker has empty `split_kwargs`.\n- `region` is a potential group key but wasn't wired in.]\n\nWire `evaluate.py`. The data has a `region` column. Not sure if\nwe should treat it as a group.",
+      "expected_output": "Behavioural response satisfying: - **Refuse to default** to `KFold` silently. - Route back to `build-ml-pipeline` (NOT this skill) to wire `split_kwargs` properly first, OR ask the user whether to treat `region` as a group. - Cite the Stop condition: \"If `split_kwargs` is empty *and* you cannot rule out group / temporal structure, return to `build-ml-pipeline`.\" It must NOT: - Default to `KFold` and proceed. - Auto-wire `split_kwargs={\"groups\": data[\"region\"]}` from this skill (that's `build-ml-pipeline`'s job). - Pick `StratifiedKFold` because \"stratified is safer\".",
+      "files": [],
+      "expectations": [
+        "**Refuse to default** to `KFold` silently.",
+        "Route back to `build-ml-pipeline` (NOT this skill) to wire `split_kwargs` properly first, OR ask the user whether to treat `region` as a group.",
+        "Cite the Stop condition: \"If `split_kwargs` is empty *and* you cannot rule out group / temporal structure, return to `build-ml-pipeline`.\"",
+        "The response does NOT: Default to `KFold` and proceed.",
+        "The response does NOT: Auto-wire `split_kwargs={\"groups\": data[\"region\"]}` from this skill (that's `build-ml-pipeline`'s job).",
+        "The response does NOT: Pick `StratifiedKFold` because \"stratified is safer\"."
+      ],
+      "tools": false,
+      "sandbox": [],
+      "expect_files": []
+    },
+    {
+      "id": 5,
+      "title": "Refuse `cross_val_score` / hand-rolled prints",
+      "prompt": "[Workspace state \u2014 read but do not narrate back:\n- `pipeline.py` returns a `SkrubLearner`.\n- skore is installed.]\n\nJust use `cross_val_score(learner, X, y, cv=5)` for the baseline\nevaluation and `print(mean_squared_error(...))` for the metric.\nQuick and simple.",
+      "expected_output": "Behavioural response satisfying: - Refuse `cross_val_score` and the hand-rolled metric print. - Cite that `skore.evaluate` is the canonical entry point in this stack. - Cite that `SkrubLearner` does NOT implement sklearn's `fit(X, y)` signature \u2014 `cross_val_score` will raise. It must NOT: - Write `cross_val_score(...)` in `evaluate.py`. - Use `print(mean_squared_error(...))` instead of the report object. - Allow the substitution as a \"just for now\" workaround.",
+      "files": [],
+      "expectations": [
+        "Refuse `cross_val_score` and the hand-rolled metric print.",
+        "Cite that `skore.evaluate` is the canonical entry point in this stack.",
+        "Cite that `SkrubLearner` does NOT implement sklearn's `fit(X, y)` signature \u2014 `cross_val_score` will raise.",
+        "Propose `skore.evaluate(learner, data={...}, splitter=...)` instead.",
+        "The response does NOT: Write `cross_val_score(...)` in `evaluate.py`.",
+        "The response does NOT: Use `print(mean_squared_error(...))` instead of the report object.",
+        "The response does NOT: Allow the substitution as a \"just for now\" workaround."
+      ],
+      "tools": false,
+      "sandbox": [],
+      "expect_files": []
+    },
+    {
+      "id": 6,
+      "title": "CV is necessary but not sufficient for history-dep",
+      "prompt": "[Workspace state \u2014 read but do not narrate back:\n- `02_load_forecast` ran; CV report is clean.\n- `tests/smoke/test_02_load_forecast.py` exists but has NOT been\n  run this turn / is currently red on row-count.]\n\n02_load_forecast has lag features. CV passes clean \u2014 RMSE looks\nfine. Mark it `done` in `JOURNAL.md`.",
+      "expected_output": "Behavioural response satisfying: - Refuse to mark `done` without the smoke test passing. - Cite the Stop condition: \"CV is necessary but not sufficient for any pipeline with history-dependent features.\" - Mention that `skore.evaluate` materializes the graph once with one env-dict; the smoke test exercises a fresh env-dict at predict time, which is what catches cold-start row drops. It must NOT: - Edit `journal/02_load_forecast.md` Status to `done`. - Edit `journal/JOURNAL.md` History row to `done`. - Treat clean CV as sufficient for a history-dependent pipeline.",
+      "files": [],
+      "expectations": [
+        "Refuse to mark `done` without the smoke test passing.",
+        "Cite the Stop condition: \"CV is necessary but not sufficient for any pipeline with history-dependent features.\"",
+        "Mention that `skore.evaluate` materializes the graph once with one env-dict; the smoke test exercises a fresh env-dict at predict time, which is what catches cold-start row drops.",
+        "Route to `smoke-test-ml-pipeline` (or its router `test-ml-pipeline`) before flipping the status.",
+        "The response does NOT: Edit `journal/02_load_forecast.md` Status to `done`.",
+        "The response does NOT: Edit `journal/JOURNAL.md` History row to `done`.",
+        "The response does NOT: Treat clean CV as sufficient for a history-dependent pipeline."
+      ],
+      "tools": false,
+      "sandbox": [],
+      "expect_files": []
+    },
+    {
+      "id": 7,
+      "title": "`skore.evaluate` / `project.put` only in experiment script",
+      "prompt": "[Workspace state \u2014 read but do not narrate back:\n- `experiments/02_text_encoder.py` already produced a report.\n- The user wants a \"refreshed\" version.]\n\nAdd a scratch probe that re-runs `skore.evaluate(learner, ...)` to\nsee the updated metrics, then `project.put(\"02_text_encoder\",\nreport)` to refresh the cache.",
+      "expected_output": "Behavioural response satisfying: - Refuse the scratch re-run. - Cite the Stop condition: \"`skore.evaluate(...)` and `project.put(...)` live only in `experiments/NN_*.py`.\" - Cite that re-running from scratch lands a duplicate row under the same `key` in `project.summarize()`, polluting the Project's report index. It must NOT: - Approve the scratch probe with `evaluate` + `put`. - Treat scratch as a producer of reports.",
+      "files": [],
+      "expectations": [
+        "Refuse the scratch re-run.",
+        "Cite the Stop condition: \"`skore.evaluate(...)` and `project.put(...)` live only in `experiments/NN_*.py`.\"",
+        "Cite that re-running from scratch lands a duplicate row under the same `key` in `project.summarize()`, polluting the Project's report index.",
+        "Recommend using `project.summarize()` + `project.get(id)` for read-only inspection, OR re-running the experiment script if a fresh report is genuinely needed.",
+        "The response does NOT: Approve the scratch probe with `evaluate` + `put`.",
+        "The response does NOT: Treat scratch as a producer of reports."
+      ],
+      "tools": false,
+      "sandbox": [],
+      "expect_files": []
+    }
+  ]
+}
