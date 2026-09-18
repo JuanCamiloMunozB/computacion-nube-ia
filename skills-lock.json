@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "skills": {
+    "evaluate-ml-pipeline": {
+      "source": "probabl-ai/skills",
+      "sourceType": "github",
+      "skillPath": "skills/evaluate-ml-pipeline/SKILL.md",
+      "computedHash": "0db5711d5d4ae248cefca8178dd2a34b14cc37422ca1559564b8c6c754f42476"
+    },
+    "fastapi-expert": {
+      "source": "jeffallan/claude-skills",
+      "sourceType": "github",
+      "skillPath": "skills/fastapi-expert/SKILL.md",
+      "computedHash": "3767f8f0f0f4d8564fc39491b26451a42966198c41ee268e71038d0bca6ce815"
+    },
+    "machine-learning-ops-ml-pipeline": {
+      "source": "sickn33/agentic-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/machine-learning-ops-ml-pipeline/SKILL.md",
+      "computedHash": "b27d485da61e2018d1ae10964b306fc3d4b899939614257c17f741048aa5a09c"
+    },
+    "mlops-engineer": {
+      "source": "sickn33/agentic-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/mlops-engineer/SKILL.md",
+      "computedHash": "cd1e7ff9236d0aecd80b00b4163865e8707562e58dfaa9dba39ddba77bd699ab"
+    },
+    "pydantic": {
+      "source": "pydantic/skills",
+      "sourceType": "github",
+      "skillPath": "skills/pydantic/SKILL.md",
+      "computedHash": "65f68dbab0f7e60bfd26998350d674a104848daf23311067e0829758a7cf6f91"
+    },
+    "writing-plans": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/writing-plans/SKILL.md",
+      "computedHash": "27c75044e444a4fc68798c3f799dc23eaff3a6bfabff32e6ad75bb20f881c094"
+    }
+  }
+}

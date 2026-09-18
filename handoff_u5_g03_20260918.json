@@ -1,0 +1,156 @@
+{
+  "grupo": "g03",
+  "fecha": "20260918",
+  "arquitectura_ganadora": "XGBoost",
+  "feature_order": [
+    "SeniorCitizen",
+    "tenure",
+    "MonthlyCharges",
+    "gender_Male",
+    "Partner_True",
+    "Dependents_True",
+    "Contract_One_year",
+    "Contract_Two_year",
+    "PaymentMethod_Credit_card__automatic_",
+    "PaymentMethod_Electronic_check",
+    "PaymentMethod_Mailed_check",
+    "InternetService_Fiber_optic",
+    "InternetService_No",
+    "OnlineSecurity_No_internet_service",
+    "OnlineSecurity_Yes",
+    "TechSupport_No_internet_service",
+    "TechSupport_Yes",
+    "PaperlessBilling_True"
+  ],
+  "categorias_crudas": {
+    "gender": [
+      "Female",
+      "Male"
+    ],
+    "Partner": [
+      "False",
+      "True"
+    ],
+    "Dependents": [
+      "False",
+      "True"
+    ],
+    "Contract": [
+      "Month-to-month",
+      "One year",
+      "Two year"
+    ],
+    "PaymentMethod": [
+      "Bank transfer (automatic)",
+      "Credit card (automatic)",
+      "Electronic check",
+      "Mailed check"
+    ],
+    "InternetService": [
+      "DSL",
+      "Fiber optic",
+      "No"
+    ],
+    "OnlineSecurity": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "TechSupport": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "PaperlessBilling": [
+      "False",
+      "True"
+    ]
+  },
+  "categoria_base_drop_first": {
+    "gender": "Female",
+    "Partner": "False",
+    "Dependents": "False",
+    "Contract": "Month-to-month",
+    "PaymentMethod": "Bank transfer (automatic)",
+    "InternetService": "DSL",
+    "OnlineSecurity": "No",
+    "TechSupport": "No",
+    "PaperlessBilling": "False"
+  },
+  "model_gcs_uri": "gs://computacionnube20263-u4-g03-mdl-20260918/u4_g03_mdl_20260918_xgboost/model.joblib",
+  "model_version": "u4_g03_mdl_20260918_xgboost",
+  "bucket": "computacionnube20263-u4-g03-mdl-20260918",
+  "versiones": {
+    "scikit-learn": "1.9.1",
+    "xgboost": "3.4.1",
+    "lightgbm": "4.7.0"
+  },
+  "smoke_test": {
+    "features": {
+      "SeniorCitizen": 0.0,
+      "tenure": 12.0,
+      "MonthlyCharges": 20.5,
+      "gender_Male": 1.0,
+      "Partner_True": 1.0,
+      "Dependents_True": 1.0,
+      "Contract_One_year": 0.0,
+      "Contract_Two_year": 0.0,
+      "PaymentMethod_Credit_card__automatic_": 0.0,
+      "PaymentMethod_Electronic_check": 0.0,
+      "PaymentMethod_Mailed_check": 1.0,
+      "InternetService_Fiber_optic": 0.0,
+      "InternetService_No": 1.0,
+      "OnlineSecurity_No_internet_service": 1.0,
+      "OnlineSecurity_Yes": 0.0,
+      "TechSupport_No_internet_service": 1.0,
+      "TechSupport_Yes": 0.0,
+      "PaperlessBilling_True": 0.0
+    },
+    "proba_esperada": 0.16356590390205383
+  },
+  "scorecard": [
+    {
+      "Arquitectura": "XGBoost",
+      "AUC": 0.8369,
+      "Precision": 0.5009,
+      "Recall": 0.7861,
+      "DPD": 0.0262,
+      "EOD": 0.0995,
+      "AUC_base (sin mitigar)": 0.8369,
+      "EOD_base (sin mitigar)": 0.0179,
+      "Costo_equidad_ratio": null,
+      "Costo_negocio_USD": 34455.35,
+      "Score_final": 0.8369
+    },
+    {
+      "Arquitectura": "LightGBM",
+      "AUC": 0.8282,
+      "Precision": 0.5157,
+      "Recall": 0.7487,
+      "DPD": 0.0107,
+      "EOD": 0.0642,
+      "AUC_base (sin mitigar)": 0.8233,
+      "EOD_base (sin mitigar)": 0.0733,
+      "Costo_equidad_ratio": null,
+      "Costo_negocio_USD": 33812.75,
+      "Score_final": 0.8282
+    },
+    {
+      "Arquitectura": "LogReg",
+      "AUC": 0.8265,
+      "Precision": 0.5061,
+      "Recall": 0.7727,
+      "DPD": 0.004,
+      "EOD": 0.093,
+      "AUC_base (sin mitigar)": 0.8265,
+      "EOD_base (sin mitigar)": 0.0403,
+      "Costo_equidad_ratio": null,
+      "Costo_negocio_USD": 34561.25,
+      "Score_final": 0.8265
+    }
+  ],
+  "artifact_gcs_uris": {
+    "handoff": "gs://computacionnube20263-u4-g03-mdl-20260918/u4_g03_artifacts_20260918/handoff_u5_g03_20260918.json",
+    "leaderboard360": "gs://computacionnube20263-u4-g03-mdl-20260918/u4_g03_artifacts_20260918/leaderboard360_g03_20260918.png"
+  }
+}
