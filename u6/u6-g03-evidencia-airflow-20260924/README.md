@@ -27,4 +27,9 @@ Esta ejecución puntual no completó el pipeline: debe considerarse una ejecuci�
 
 ## Evidencia visual
 
-Las capturas visuales fueron tomadas en Cloud Shell y quedaron mostradas en la conversación. El entorno CUA no exportó automáticamente esas imágenes como archivos locales; los archivos de esta carpeta conservan la evidencia textual exacta y permiten reproducir la consulta.
+Las capturas visuales exportadas para la entrega son:
+
+- `airflow_task_states_capture.png`: Cloud Shell con los estados de tareas y el registro del DAG.
+- `streamlit_preview_capture.png`: vista de Streamlit con integrantes, proyecto, pestañas de monitoreo y alertas de drift.
+
+Las imágenes corresponden a observaciones de solo lectura; no ejecutan nuevamente el DAG.
