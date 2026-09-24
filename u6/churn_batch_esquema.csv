@@ -1,0 +1,21 @@
+customerID,gender,SeniorCitizen,Partner,Dependents,tenure,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,Contract,PaperlessBilling,PaymentMethod,MonthlyCharges,TotalCharges,ChurnScoreCRM,LastContactDate
+ESQ-001,Male,0,No,Yes,51,Yes,Yes,Fiber optic,Yes,Yes,No,No,Yes,Yes,Month-to-month,No,Electronic check,83.44,4255.44,0.79,2026-02-17
+ESQ-002,Male,0,Yes,No,51,Yes,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,Yes,Bank transfer (automatic),23.91,1219.41,0.55,2026-03-13
+ESQ-003,Male,0,Yes,No,48,Yes,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,One year,No,Credit card (automatic),28.65,1375.2,0.38,2026-04-15
+ESQ-004,Female,0,No,No,11,Yes,Yes,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Mailed check,75.87,834.57,0.73,2026-03-25
+ESQ-005,Female,0,No,No,,Yes,No,Fiber optic,Yes,Yes,No,No,Yes,Yes,Two year,No,Credit card (automatic),94.69,,0.31,2026-07-21
+ESQ-006,Male,1,Yes,Yes,46,No,No phone service,DSL,No,Yes,Yes,No,No,No,Month-to-month,Yes,Credit card (automatic),35.64,1639.44,0.41,2026-05-14
+ESQ-007,Female,0,Yes,Yes,54,No,No phone service,Fiber optic,Yes,Yes,Yes,Yes,Yes,No,Two year,Yes,Bank transfer (automatic),116.66,6299.64,0.3,2026-03-23
+ESQ-008,Male,1,No,No,41,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,One year,No,Electronic check,113.36,4647.76,0.48,2026-07-11
+ESQ-009,Male,0,Yes,Yes,27,Yes,Yes,DSL,Yes,Yes,No,Yes,Yes,Yes,Two year,No,Mailed check,62.62,1690.74,0.62,2026-06-21
+ESQ-010,Female,1,No,No,15,Yes,Yes,Fiber optic,Yes,Yes,No,No,No,Yes,Two year,Yes,Mailed check,103.04,1545.6,0.91,2026-09-21
+ESQ-011,Male,0,No,Yes,68,Yes,No,DSL,Yes,No,Yes,Yes,Yes,No,Two year,Yes,Mailed check,48.51,3298.68,0.52,2026-06-10
+ESQ-012,Female,1,No,No,,No,No phone service,DSL,Yes,Yes,Yes,Yes,No,Yes,One year,Yes,Credit card (automatic),44.66,,0.61,2026-01-25
+ESQ-013,Male,1,Yes,No,11,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Bank transfer (automatic),101.63,1117.93,0.13,2026-07-24
+ESQ-014,Male,0,Yes,No,21,Yes,Yes,Fiber optic,No,No,Yes,Yes,Yes,Yes,Two year,Yes,Mailed check,35.83,752.43,0.44,2026-04-16
+ESQ-015,Male,0,No,No,28,No,No phone service,DSL,Yes,Yes,No,No,No,Yes,Two year,Yes,Electronic check,48.0,1344.0,0.84,2026-03-10
+ESQ-016,Male,0,No,No,19,Yes,Yes,DSL,Yes,Yes,Yes,No,Yes,Yes,Two year,No,Electronic check,65.88,1251.72,0.73,2026-02-24
+ESQ-017,Female,0,No,Yes,36,Yes,No,Fiber optic,Yes,No,Yes,No,No,No,Month-to-month,Yes,Credit card (automatic),63.78,2296.08,0.12,2026-05-13
+ESQ-018,Male,1,Yes,Yes,,No,No phone service,DSL,No,No,Yes,Yes,Yes,No,Two year,No,Bank transfer (automatic),44.06,,0.43,2026-06-20
+ESQ-019,Female,1,Yes,No,3,No,No phone service,DSL,No,No,Yes,Yes,Yes,Yes,Month-to-month,No,Bank transfer (automatic),52.46,157.38,0.09,2026-03-18
+ESQ-020,Female,0,Yes,No,34,No,No phone service,DSL,Yes,Yes,No,Yes,No,Yes,Two year,Yes,Bank transfer (automatic),59.19,2012.46,0.13,2026-04-12

@@ -1,0 +1,7 @@
+apache-airflow==3.3.2
+apache-airflow-providers-standard
+apache-airflow-providers-google
+google-cloud-bigquery
+google-cloud-storage
+requests
+streamlit

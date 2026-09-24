@@ -1,0 +1,5 @@
+Comando:
+env AIRFLOW_HOME=/home/sebastianerazo266/u6-g03-airflow-home-20260924 /home/sebastianerazo266/u6-g03-airflow-venv-20260924/bin/airflow dags list -o plain | grep pipeline_mlops_churn
+
+Resultado observado:
+pipeline_mlops_churn  /home/sebastianerazo266/u6-g03-airflow-home-20260924/dags/dag_pipeline_churn.py  ['u6-g03']  True  dags-folder

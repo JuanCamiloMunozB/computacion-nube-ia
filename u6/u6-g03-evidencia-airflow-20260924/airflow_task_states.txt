@@ -1,0 +1,9 @@
+Comando:
+env AIRFLOW_HOME=/home/sebastianerazo266/u6-g03-airflow-home-20260924 /home/sebastianerazo266/u6-g03-airflow-venv-20260924/bin/airflow tasks states-for-dag-run pipeline_mlops_churn 'manual__2026-09-24T16:17:27.980813+00:00' -o plain
+
+Resultado observado:
+dag_id                logical_date                      task_id                   state            start_date                        end_date
+pipeline_mlops_churn  2026-09-24T16:17:26.779384+00:00  leer_csv_de_gcs          success          2026-09-24T17:25:29.938594+00:00  2026-09-24T17:25:35.334993+00:00
+pipeline_mlops_churn  2026-09-24T16:17:26.779384+00:00  enviar_a_api_y_clasificar failed          2026-09-24T17:25:35.407565+00:00  2026-09-24T17:25:35.466468+00:00
+pipeline_mlops_churn  2026-09-24T16:17:26.779384+00:00  guardar_en_bigquery       upstream_failed  2026-09-24T17:25:35.502207+00:00  2026-09-24T17:25:35.502207+00:00
+pipeline_mlops_churn  2026-09-24T16:17:26.779384+00:00  verificar_drift            upstream_failed  2026-09-24T17:25:36.518868+00:00  2026-09-24T17:25:36.518868+00:00

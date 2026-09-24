@@ -126,7 +126,7 @@ class PrediccionOutput(BaseModel):
     model_version: str
     predicted_at: datetime
     requested_by: str
-    source: Literal["api_single", "api_batch"]
+    source: Literal["api_single", "api_batch", "batch_job"]
     input_file: str | None = None
 
 

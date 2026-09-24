@@ -1,0 +1,21 @@
+customerID,gender,SeniorCitizen,Partner,Dependents,tenure,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,Contract,PaperlessBilling,PaymentMethod,MonthlyCharges,TotalCharges
+OK-001,Male,0,Yes,Yes,4,Yes,Yes,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,No,Electronic check,92.41,369.64
+OK-002,Male,0,No,Yes,28,Yes,No,DSL,No,Yes,Yes,No,No,No,Month-to-month,Yes,Bank transfer (automatic),42.03,1176.84
+OK-003,Female,0,Yes,No,49,Yes,Yes,DSL,No,Yes,No,No,Yes,Yes,Month-to-month,Yes,Bank transfer (automatic),28.57,1399.93
+OK-004,Female,0,Yes,No,13,Yes,No,DSL,Yes,No,Yes,Yes,Yes,Yes,One year,No,Bank transfer (automatic),56.63,736.19
+OK-005,Male,0,Yes,No,42,Yes,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,One year,Yes,Mailed check,102.44,4302.48
+OK-006,Female,1,Yes,No,28,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,Yes,Bank transfer (automatic),83.89,2348.92
+OK-007,Male,1,Yes,Yes,52,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,Yes,Mailed check,54.84,2851.68
+OK-008,Female,0,Yes,Yes,9,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,No,Bank transfer (automatic),57.09,513.81
+OK-009,Male,0,Yes,Yes,56,No,No phone service,DSL,No,Yes,Yes,No,Yes,Yes,Two year,No,Credit card (automatic),34.66,1940.96
+OK-010,Female,0,Yes,Yes,47,Yes,Yes,DSL,Yes,No,Yes,Yes,Yes,No,Two year,Yes,Bank transfer (automatic),105.99,4981.53
+OK-011,Male,0,No,No,28,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,One year,No,Electronic check,110.96,3106.88
+OK-012,Male,0,Yes,Yes,9,Yes,Yes,DSL,Yes,Yes,Yes,No,Yes,Yes,One year,No,Mailed check,52.47,472.23
+OK-013,Female,1,Yes,Yes,61,Yes,Yes,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,No,Bank transfer (automatic),43.06,2626.66
+OK-014,Male,0,Yes,No,60,No,No phone service,Fiber optic,No,Yes,Yes,Yes,Yes,No,Month-to-month,No,Mailed check,104.52,6271.2
+OK-015,Male,1,Yes,Yes,32,No,No phone service,Fiber optic,Yes,Yes,Yes,Yes,No,No,One year,Yes,Credit card (automatic),105.57,3378.24
+OK-016,Female,0,No,No,49,Yes,No,DSL,No,Yes,Yes,No,Yes,Yes,Two year,Yes,Bank transfer (automatic),19.21,941.29
+OK-017,Male,0,Yes,Yes,62,Yes,Yes,DSL,Yes,Yes,No,Yes,Yes,Yes,Two year,Yes,Credit card (automatic),68.78,4264.36
+OK-018,Female,0,No,No,34,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Credit card (automatic),39.22,1333.48
+OK-019,Male,0,Yes,No,2,Yes,Yes,Fiber optic,No,Yes,Yes,No,No,Yes,One year,No,Electronic check,64.37,128.74
+OK-020,Male,0,Yes,Yes,14,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,Yes,Bank transfer (automatic),111.95,1567.3

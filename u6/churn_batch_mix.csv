@@ -1,0 +1,21 @@
+customerID,gender,SeniorCitizen,Partner,Dependents,tenure,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,Contract,PaperlessBilling,PaymentMethod,MonthlyCharges,TotalCharges
+MIX-001,Female,1,No,Yes,44,Yes,Yes,Fiber optic,No,No,Yes,Yes,No,Yes,Two year,No,Mailed check,39.16,1723.04
+MIX-002,Male,0,Yes,Yes,71,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,Yes,Bank transfer (automatic),88.86,6309.06
+MIX-003,Female,0,Yes,No,56,Yes,Yes,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,Yes,Electronic check,31.62,1770.72
+MIX-004,Male,0,Yes,No,20,No,No phone service,Fiber optic,Yes,Yes,No,No,Yes,No,Month-to-month,Yes,Credit card (automatic),110.65,2213.0
+MIX-005,Female,0,No,Yes,29,No,No phone service,DSL,Yes,Yes,Yes,No,No,No,Month-to-month,No,Bank transfer (automatic),38.76,1124.04
+MIX-006,Male,0,No,Yes,69,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,No,Electronic check,51.78,3572.82
+MIX-007,Female,1,Yes,No,45,No,No phone service,DSL,Yes,No,Yes,No,Yes,Yes,One year,No,Electronic check,91.13,4100.85
+MIX-008,Male,0,No,No,41,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,One year,No,Bank transfer (automatic),84.68,3471.88
+MIX-009,Female,0,No,No,25,Yes,Yes,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,One year,No,Mailed check,60.62,1515.5
+MIX-010,Male,1,Yes,Yes,60,No,No phone service,Fiber optic,No,No,Yes,Yes,No,Yes,Month-to-month,Yes,Electronic check,62.74,3764.4
+MIX-011,Male,1,No,Yes,61,Yes,No,DSL,No,No,Yes,Yes,Yes,Yes,One year,Yes,Mailed check,79.52,4850.72
+MIX-012,Male,1,Yes,No,7,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,No,Credit card (automatic),74.18,519.26
+MIX-013,Male,1,No,No,71,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Credit card (automatic),63.15,4483.65
+MIX-014,Female,0,No,No,36,Yes,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,Yes,Mailed check,62.55,2251.8
+MIX-015,Male,0,No,No,50,Yes,No,DSL,No,No,Yes,Yes,No,No,Two year,Yes,Credit card (automatic),87.7,4385.0
+MIX-016,Female,1,Yes,No,46,Yes,Yes,Fiber optic,No,No,No,Yes,No,No,1 year,No,Mailed check,48.56,2233.76
+MIX-017,Male,1,Yes,Yes,150,Yes,No,Fiber optic,Yes,No,Yes,Yes,No,No,One year,Yes,Credit card (automatic),116.09,17413.5
+MIX-018,Female,1,No,Yes,49,No,No phone service,Fiber optic,No,Yes,Yes,No,Yes,Yes,Two year,Yes,Electronic check,-15.0,-735.0
+MIX-019,Male,0,No,Yes,3,Yes,Yes,DSL,No,No,No,Yes,Yes,Yes,One year,Yes,Paypal,80.51,241.53
+MIX-020,Female,1,Yes,Yes,N/A,Yes,Yes,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Electronic check,110.96,

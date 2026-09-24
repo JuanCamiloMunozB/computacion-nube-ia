@@ -139,6 +139,10 @@ def predict(cliente: ClienteInput, request: Request) -> PrediccionOutput:
         )
         raise HTTPException(status_code=500, detail="Error interno al generar la predicción.")
 
+    source_header = request.headers.get("x-source", "api_single").strip().lower()
+    source = source_header if source_header in {"api_single", "api_batch", "batch_job"} else "api_single"
+    input_file = request.headers.get("x-input-file") if source != "api_single" else None
+
     resultado = PrediccionOutput(
         customer_id=cliente.customer_id,
         customer_risk_score=round(proba, 4),
@@ -146,8 +150,8 @@ def predict(cliente: ClienteInput, request: Request) -> PrediccionOutput:
         model_version=MODEL_VERSION,
         predicted_at=datetime.now(timezone.utc),
         requested_by=request.headers.get("x-goog-authenticated-user-email", "unknown"),
-        source="api_single",
-        input_file=None,
+        source=source,
+        input_file=input_file,
     )
     logger.info(
         "predict_ok",
